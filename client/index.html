@@ -1,0 +1,52 @@
+<html>
+  <body>
+   <head><script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   </head>
+
+  <script>
+    const data = {
+      "ID": 13092,
+      "Amount": 4500,
+      "Currency": "NGN",
+      "CustomerEmail": "anon8@customers.io",
+      "SplitInfo": [
+          {
+              "SplitType": "FLAT",
+              "SplitValue": 450,
+              "SplitEntityId": "LNPYACC0019"
+          },
+          {
+              "SplitType": "RATIO",
+              "SplitValue": 3,
+              "SplitEntityId": "LNPYACC0011"
+          },
+          {
+              "SplitType": "PERCENTAGE",
+              "SplitValue": 3,
+              "SplitEntityId": "LNPYACC0015"
+          },
+          {
+              "SplitType": "RATIO",
+              "SplitValue": 2,
+              "SplitEntityId": "LNPYACC0016"
+          },
+          {
+              "SplitType": "FLAT",
+              "SplitValue": 2450,
+              "SplitEntityId": "LNPYACC0029"
+          },
+          {
+              "SplitType": "PERCENTAGE",
+              "SplitValue": 10,
+              "SplitEntityId": "LNPYACC0215"
+          },
+      ]
+  }
+
+  axios.post('https://splitting-service.herokuapp.com/split-payments/compute', data )
+    .then(function (response) {
+      console.log("RESPONSE => 51", response)
+  });
+  </script>
+  </body>
+</html>
